@@ -11,7 +11,7 @@
           - show version
       register: show_version_output
 
-    - name: Pass text and command
+    - name: Parse the output using ntc_templates
       ansible.utils.cli_parse:
         text: "{{ show_version_output.stdout[0] }}"
         parser:
@@ -19,5 +19,6 @@
           command: show version
       register: parser_output
 
-    - debug:
+    - name: Print the running image
+      debug:
         var: parser_output.parsed[0]['running_image']
