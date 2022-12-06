@@ -1,0 +1,12 @@
+---
+- name: Configure Hostname
+  hosts: all
+  connection: ansible.netcommon.network_cli
+  gather_facts: false
+
+
+  tasks:
+    - name: Configure hostname
+      cisco.ios.hostname:
+        config:
+          hostname: "{{ inventory_hostname }}"

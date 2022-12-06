@@ -1,0 +1,23 @@
+---
+- name: Get Facts
+  hosts: all
+  connection: ansible.netcommon.network_cli
+  gather_facts: false
+
+  tasks:
+    - name: Return Version
+      cisco.ios.ios_command:
+        commands:
+          - show version
+      register: show_version_output
+
+    - name: Pass text and command
+      ansible.utils.cli_parse:
+        text: "{{ show_version_output.stdout[0] }}"
+        parser:
+          name: ansible.netcommon.ntc_templates
+          command: show version
+      register: parser_output
+
+    - debug:
+        var: parser_output.parsed[0]['running_image']
