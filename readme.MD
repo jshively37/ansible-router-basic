@@ -20,6 +20,7 @@ To run the playbooks:
 `ansible-playbook -i inventory/ (filename).yml`
 
 The following files have been included:
+
 `gather_facts.yml`: This will connect to the router and run a show version. It uses cli_parse and ntc_templates to return structured data, and displays the device's running image.
 
 `configure_hostname.yml`: This will connect to the device and ensure the hostname matches the hostname in the inventory.
