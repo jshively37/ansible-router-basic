@@ -7,6 +7,6 @@
 
   tasks:
     - name: Configure hostname
-      cisco.ios.hostname:
+      cisco.ios.ios_hostname:
         config:
           hostname: "{{ inventory_hostname }}"

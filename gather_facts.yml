@@ -20,5 +20,5 @@
       register: parser_output
 
     - name: Print the running image
-      debug:
+      ansible.builtin.debug:
         var: parser_output.parsed[0]['running_image']
