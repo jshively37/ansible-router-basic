@@ -2,7 +2,7 @@
 
 This repo contains basic examples of using Ansible to manage a single router with a static inventory file.
 
-This is not designed for production but basic demo.
+This is designed for demo not production.
 
 ## Installation
 
